@@ -1,0 +1,60 @@
+<DOCTYPE html>
+<html>
+  <head>
+    <title>Presentation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body {
+        font-family: 'Droid Serif';
+      }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code {
+        font-family: 'Ubuntu Mono';
+      }
+      .remark-code-line {
+        word-wrap: break-word;
+      }
+      /* Two-column layout */
+      .left-column {
+        width: 10%;
+        float: left;
+      }
+      .right-column {
+        width: 5%;
+        float: right;
+      }
+      .hoge {
+        color: blue;
+        font-size: 2em;
+      }
+      .remark-slide-content {
+        background-repeat: no-repeat;
+        background-image: url(image/kan_get_l/1_bg_blue_l.png);
+        /* background-image: url(image/kan_get_l/3_bg_silver_l.png); */
+        background-color: #999999;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript">
+    </script>
+    <!--
+    <script src="./remark-latest.min.js" type="text/javascript">
+    </script>
+    -->
+    <script type="text/javascript">
+      var query = window.location.search.substring(1);
+      var slideshow = remark.create({
+        sourceUrl: "slides/" + (query ? query : "default.md"),
+        ratio: '16:9'
+      });
+    </script>
+  </body>
+</html>
