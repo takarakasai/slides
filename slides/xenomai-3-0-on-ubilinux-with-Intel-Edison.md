@@ -3,6 +3,11 @@ date: 2015-11-01 05:43:20
 tags:
 
 # xenomai-3.0 on ubilinux with Intel Edison
+
+<div style="text-align: right;">
+@takarakasai
+</div>
+
 ---
 
 
