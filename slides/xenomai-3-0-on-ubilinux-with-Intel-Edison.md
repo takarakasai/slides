@@ -31,7 +31,7 @@ Yoctoのビルドシステムを使用することになるので,手動でパ�
 
 ```bash
 > wget http://www.emutexlabs.com/files/ubilinux/ubilinux-edison-150309.tar.gz
-> tar zxvf ubilinux-edison-150309.tar.gz$
+> tar zxvf ubilinux-edison-150309.tar.gz
 > cd toFlash
  ここで一旦Edisonに接続されているUSBケーブルを取り外します
 > ./flashall.sh
@@ -62,9 +62,9 @@ Yocto LinuxとXenomaiのソース一式を取得して展開
 
 ```bash
 > wget http://downloadmirror.intel.com/25028/eng/edison-src-ww25.5-15.tgz
-> tar zxvf edison-src-ww25.5-15.tgz$
+> tar zxvf edison-src-ww25.5-15.tgz
 > wget https://xenomai.org/downloads/xenomai/stable/xenomai-3.0.tar.bz2
-> bzip2 -dc xenomai-3.0.tar.bz2$ | tar xvf -
+> bzip2 -dc xenomai-3.0.tar.bz2 | tar xvf -
 ```
 
 Git から取得しても良いです.
