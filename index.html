@@ -23,11 +23,11 @@
       }
       /* Two-column layout */
       .left-column {
-        width: 10%;
+        width: 0%;
         float: left;
       }
       .right-column {
-        width: 5%;
+        width: 0%;
         float: right;
       }
       .hoge {
@@ -47,8 +47,10 @@
     <script type="text/javascript">
       var query = window.location.search.substring(1);
       var parameters = query.split('&');
-      console.log("slides:" + parameters[0]);
-      console.log("ratio:"  + parameters[1]);
+      /*
+        console.log("slides:" + parameters[0]);
+        console.log("ratio:"  + parameters[1]);
+       */
       var slideshow = remark.create({
         sourceUrl: "slides/" + (parameters[0] ? parameters[0] : "default.md"),
         ratio: (parameters[1] ? parameters[1] : '4:3')
