@@ -262,7 +262,7 @@ root@ubilinux:/home/kasai/rsx/build# dmesg | grep ch341
 
 ## 4.2.1 サーボON中の現在角度取得 (Echo:Off)
 
-- 1軸あたり40.0-50.0[msec]程度の時間が消費されるようです. 
+- 1軸あたり4.0-5.0[msec]程度の時間が消費されるようです. 
 - ばらつきがあります.
 
 ```bash
@@ -428,7 +428,7 @@ Firmware Version:05
 
 <table border=1 align=center>
  <tr><th></th><th>USB-RS232-RS485</th><th>USB-RS485</th><th>uart-RS232-RS485</th></tr>
- <tr><td>              現在角度取得</td><td> 3.0[msec]</td><td>40-50.0[msec]</td><td> 2.5[msec]</td></tr>
+ <tr><td>              現在角度取得</td><td> 3.0[msec]</td><td>4-5.0[msec]</td><td> 2.5[msec]</td></tr>
  <tr><td>目標角度更新と現在角度取得</td><td>67.0[msec]</td><td>  100.0[msec]</td><td>57.0[msec]</td></tr>
 </table>
 
