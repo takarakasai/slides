@@ -329,7 +329,7 @@ Firmware Version:05
 ## 4.3 実施形態3 (RS232C-RS485)
 
 ```ascii
-  +--------+ RS232C +------------+ RS485 +-------+
+  +--------+  uart  +------------+ RS485 +-------+
   | Edison |========|RS232C-RS485|=======| GR001 |
   +--------+        +------------+       +-------+
 ```
@@ -351,7 +351,7 @@ Firmware Version:05
   | Edison |
   +--------+
       || uart 
-  +--------+ RS232C +------------+ RS485 +-------+
+  +--------+  uart  +------------+ RS485 +-------+
   |自作基板|========|RS232C-RS485|=======| GR001 |
   +--------+        +------------+       +-------+
 ```
@@ -361,6 +361,34 @@ Firmware Version:05
 =>
 <img src="./slides/rs485-with-Intel-Edison/ttyMFD2rs485_1board_2.jpg" width="320px">
 </div>
+
+---
+
+## 4.3.0 uart <-> RS485 変換IC
+
+#### ISL32603E
+
+-半二重通信用のICで1.8[V]で駆動.256～460[Kbps]までいける.
+(※ 保証はできませんが私の環境では115[Kbps]でも動作しました.).
+
+-パッケージはSOIC(1.27[mm])もしくはMSOP(0.5[mm])になるので表面実装が必要.
+
+<img src="http://www.incom.co.jp/var/assets/storage/images/companies/node_1664/product/node_118235/1662980-2-jpn-JP/RS-485-ISL3260x_square250.jpg"> [1] </img>
+<img src="http://www.eleki-jack.com/KitsandKids2/assets_c/2010/11/LTSP20620020-thumb-400x493.jpg" height="180px"> [2] </img>
+<img src="http://akizukidenshi.com/img/goods/L/P-06863.jpg" width="200px"> [3] </img>
+
+<font size=2>
+[1] http://www.incom.co.jp/var/assets/storage/images/companies/node_1664/product/node_118235/1662980-2-jpn-JP/RS-485-ISL3260x_square250.jpg <br>
+[2] http://www.eleki-jack.com/KitsandKids2/assets_c/2010/11/LTSP20620020-thumb-400x493.jpg <br>
+[3] http://akizukidenshi.com/img/goods/L/P-06863.jpg
+</font>
+
+購入場所
+[mouser](http://www.mouser.jp)
+or
+[digikey](http://www.digikey.jp)
+
+[仕様書](http://www.intersil.com/content/dam/Intersil/documents/isl3/isl32600e-01e-02e-03e.pdf)
 
 ---
 
@@ -433,6 +461,26 @@ Firmware Version:05
  <tr><td>              現在角度取得</td><td> 3.0[msec]</td><td>4-5.0[msec]</td><td> 2.5[msec]</td></tr>
  <tr><td>目標角度更新と現在角度取得</td><td>67.0[msec]</td><td>  100.0[msec]</td><td>57.0[msec]</td></tr>
 </table>
+
+---
+
+## 6 考察
+
+### 通信遅延要因
+
+#### シリアル通信ドライバ
+
+- 速度優先の設定になっていない (setserial /dev/tty* low_latency)
+- バッファ処理による遅延
+- ユーザ-カーネル間の遷移に関連する遅延(通信データ, コンテキストスイッチ)
+
+==> RTDM対応のシリアル通信ドライバを作成すれば改善する可能性あり.
+
+#### その他
+
+- サーボに設定できる通信遅延時間が長く設定されている (0.1 - 12.850[msec])
+
+==> 最小値(0.1[msec])に設定されていた
 
 ---
 
