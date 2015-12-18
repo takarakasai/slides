@@ -10,5 +10,8 @@ background-image: url("image/")
 [link(4:3)](./index.html?rs485-with-Intel-Edison.md)
 [link(16:9)](./index.html?rs485-with-Intel-Edison.md&16:9)
 
+3. EdisonからPythonでGR001を動かす
+[link(4:2)](./index.html?gr001_with_python.md)
+[link(16:9)](./index.html?gr001_with_python.md?16:9)
 
 
