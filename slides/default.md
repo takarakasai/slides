@@ -14,4 +14,7 @@ background-image: url("image/")
 [link(4:2)](./index.html?gr001_with_python.md)
 [link(16:9)](./index.html?gr001_with_python.md?16:9)
 
+4. MatlabからKHR3-HVとGR001を動かす(2016/01/13)
+[link(4:2)](./index.html?khr3_gr001_with_matlab.md)
+[link(16:9)](./index.html?khr3_gr001_with_matlab.md?16:9)
 

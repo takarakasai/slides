@@ -1,0 +1,81 @@
+
+digraph rsx {
+    graph [
+      label = "rsx v0.10 structure"
+    ]
+
+    subgraph cluster_4 {
+      label = "Matlab(MEX) wrapper";
+      labeljust = "l";
+
+      mex [label = "dps MEX APIs", shape = box];
+      dpsproxy [shape = box];
+
+      mex -> dpsproxy
+    }
+
+    subgraph cluster_0 {
+      label = "python wrapper";
+      labeljust = "l";
+
+      rsxpy [shape = box];
+      icspy [shape = box];
+    }
+
+    subgraph cluster_1 {
+      label = "C++ wrapper";
+      labeljust = "l";
+
+      dpspp [shape = box];
+      rsxpp [shape = box];
+      icspp [shape = box];
+    }
+
+    subgraph cluster_2 {
+      label = "rsx core";
+      labeljust = "l"
+ 
+      dps [label = "dpservo", shape = box, width = 3.0];
+      rsx [label = "rsx", shape = box];
+      ics [label = "ics", shape = box];
+      others [label = "etc...", shape = box];
+
+      dps -> rsx
+      dps -> ics
+      dps -> others
+      //rsx -> time
+      //rsx -> uart
+    };
+
+    subgraph cluster_3 {
+      label = "porting layer\n MinGW/Linux"
+      labelloc = "b"
+          
+      time [shape = circle]
+      uart [shape = circle]
+      //time -> uart
+    };
+
+    bpython [label = "boost::\npython", shape = circle];
+
+    dpsproxy -> dps
+
+    rsxpy -> bpython [lhead = "cluster_1", ltail = "cluster_0"];
+    rsxpy -> rsxpp
+    icspy -> icspp
+
+    dpspp -> dps
+    rsxpp -> dps
+    icspp -> dps
+ 
+    rsx -> time [style=dashed]
+    rsx -> uart [style=dashed]
+    ics -> time [style=dashed]
+    ics -> uart [style=dashed]
+    others -> time [style=dashed]
+    others -> uart [style=dashed]
+    
+    //a -- b -- c [color=blue];
+    //b -- d [style=dotted];
+}
+
