@@ -18,3 +18,7 @@ background-image: url("image/")
 [link(4:2)](./index.html?khr3_gr001_with_matlab.md)
 [link(16:9)](./index.html?khr3_gr001_with_matlab.md?16:9)
 
+5. 剛体他関節体の順運動学と順動力学演算をpythonでやってみる
+[link(4:2)](./index.html?kinematics_dynamics_traning.md)
+[link(16:9)](./index.html?kinematics_dynamics_traning.md?16:9)
+
