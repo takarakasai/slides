@@ -12,11 +12,14 @@
         font-family: 'Droid Serif';
       }
       h1, h2, h3 {
-        font-family: 'Yanone Kaffeesatz';
+        /*font-family: 'Yanone Kaffeesatz';*/
+        font-family: 'Sazanami Gothic';
+        /*font-family: 'Ubuntu Mono';*/
         font-weight: normal;
       }
       .remark-code, .remark-inline-code {
-        font-family: 'Ubuntu Mono';
+        font-family: 'Sazanami Gothic';
+        /*font-family: 'Ubuntu Mono';*/
       }
       .remark-code-line {
         word-wrap: break-word;
@@ -38,12 +41,23 @@
         background-repeat: repeat;
         background-image: url(image/kan_get_l/1_bg_blue_l.png);
         background-color: #999999;
+        font-size: 20px;
+        padding: 0em 2em 0em 2em;
       }
     </style>
   </head>
   <body>
     <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript">
     </script>
+    <style>
+      .remark-slide em, strong {
+        font-size: 24px;
+      }
+      .remark-slide h2, h3, h4, h5 {
+        font-size: 30px;
+      }
+    </style>
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
     <script type="text/javascript">
       var query = window.location.search.substring(1);
       var parameters = query.split('&');
@@ -55,6 +69,23 @@
         sourceUrl: "slides/" + (parameters[0] ? parameters[0] : "default.md"),
         ratio: (parameters[1] ? parameters[1] : '4:3')
       });
+
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+          ,
+          TeX: { equationNumbers: {autoNumber: "AMS"} }
+      });
+
+      MathJax.Hub.Queue(function() {
+          $(MathJax.Hub.getAllJax()).map(function(index, elem) {
+              return(elem.SourceElement());
+          }).parent().addClass('has-jax');
+      });
+
+      MathJax.Hub.Configured();
     </script>
   </body>
 </html>
